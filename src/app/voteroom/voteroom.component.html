@@ -1,0 +1,7 @@
+<div *ngFor="let vote of votes">
+  <button class="mybtn" (click)="upVote(vote)">
+    {{vote.name}}, {{vote.count}}
+  </button>
+</div>
+
+<!-- <button class="mybtn" (click)="resetVote()">Reset them</button> -->
