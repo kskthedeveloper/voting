@@ -7,7 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'voteroom',
   templateUrl: './voteroom.component.html',
-  styleUrls: ['./voteroom.component.css']
+  styleUrls: ['./voteroom.component.css'],
 })
 export class VoteroomComponent implements OnInit {
 

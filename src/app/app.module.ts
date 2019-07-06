@@ -27,7 +27,9 @@ import { ToastrModule } from 'ngx-toastr';
     AngularFirestoreModule,
     StorageServiceModule,
     BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot()
+    ToastrModule.forRoot({
+      preventDuplicates: true,
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

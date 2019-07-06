@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Voteinfo } from '../model/voteinfo';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VoteService {
 
-  constructor(private firestore: AngularFirestore) { }
+  constructor(private firestore: AngularFirestore, private toastr: ToastrService) { }
   
   getVotes() {
     return this.firestore.collection('framework')
@@ -15,7 +16,9 @@ export class VoteService {
   }
 
   updateVote(vote: Voteinfo) {
-    this.firestore.doc('framework/' + vote.id).update(vote);
+    this.firestore.doc('framework/' + vote.id).update(vote).then( any => {
+      this.toastr.info("Thanks for voting", "Success!");
+    });
   }
 
   resetVotes(votes: Voteinfo[]) {
